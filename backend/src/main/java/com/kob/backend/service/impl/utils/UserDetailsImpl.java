@@ -1,4 +1,4 @@
-package com.kob.backend.service.util;
+package com.kob.backend.service.impl.utils;
 
 import com.kob.backend.pojo.User;
 import lombok.AllArgsConstructor;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
     private User user;
