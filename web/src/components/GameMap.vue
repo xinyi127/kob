@@ -18,7 +18,10 @@ export default {
 
         // 当 template 完成 parent 和 canvas 的挂载（分别与 div 和 canvas 产生关联）后，执行 onMounted
         onMounted(() => {
-            new GameMap(canvas.value.getContext('2d'), parent.value, store)
+            store.commit(
+                "updateGameObject", 
+                new GameMap(canvas.value.getContext('2d'), parent.value, store)
+            );
         });
 
         // 在此处返回后，才可以在 template 中使用这两个变量
