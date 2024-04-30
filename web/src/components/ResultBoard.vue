@@ -60,11 +60,11 @@ div.result-board-text {
     font-size: 50px;
     font-weight: 600;
     font-style: italic;
-    padding-top: 5vh;
+    padding-top: 4vh;
 }
 
 div.result-board-btn {
     text-align: center;
-    padding-top: 7vh;
+    padding-top: 4vh;
 }
 </style>
