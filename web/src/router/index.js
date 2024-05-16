@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import NotFound from '@/views/error/NotFound'
-import PkIndexView from '@/views/pk/PkIndexView'
-import RanklistIndexView from '@/views/ranklist/RanklistIndexView'
-import RecordIndexView from '@/views/record/RecordIndexView'
-import UserBotIndexView from '@/views/user/bot/UserBotIndexView'
-import UserAccountLoginView from '@/views/user/account/UserAccountLoginView'
-import UserAccountRegisterView from '@/views/user/account/UserAccountRegisterView'
-import store from '@/store/index'
+import PkIndexView from '../views/pk/PkIndexView'
+import RecordIndexView from '../views/record/RecordIndexView'
+import RecordContentView from '../views/record/RecordContentView'
+import RanklistIndexView from '../views/ranklist/RanklistIndexView'
+import UserBotIndexView from '../views/user/bot/UserBotIndexView'
+import NotFound from '../views/error/NotFound'
+import UserAccountLoginView from '../views/user/account/UserAccountLoginView'
+import UserAccountRegisterView from '../views/user/account/UserAccountRegisterView'
+import AdministratorIndexView from '../views/administrator/AdministratorIndexView'
+import store from '../store/index'
 
-// 页面路由，URL 从上往下匹配
 const routes = [
   {
     path: "/",
@@ -19,17 +20,25 @@ const routes = [
     }
   },
   {
-    path: "/404/",
-    name: "404",
-    component: NotFound,
-    meta: {
-      requestAuth: false,
-    }
-  },
-  {
     path: "/pk/",
     name: "pk_index",
     component: PkIndexView,
+    meta: {
+      requestAuth: true,
+    }
+  },
+  {
+    path: "/record/",
+    name: "record_index",
+    component: RecordIndexView,
+    meta: {
+      requestAuth: true,
+    }
+  },
+  {
+    path: "/record/:recordId/",
+    name: "record_content",
+    component: RecordContentView,
     meta: {
       requestAuth: true,
     }
@@ -43,9 +52,9 @@ const routes = [
     }
   },
   {
-    path: "/record/",
-    name: "record_index",
-    component: RecordIndexView,
+    path: "/administrator/",
+    name: "administrator_index",
+    component: AdministratorIndexView,
     meta: {
       requestAuth: true,
     }
@@ -70,6 +79,14 @@ const routes = [
     path: "/user/account/register/",
     name: "user_account_register",
     component: UserAccountRegisterView,
+    meta: {
+      requestAuth: false,
+    }
+  },
+  {
+    path: "/404/",
+    name: "404",
+    component: NotFound,
     meta: {
       requestAuth: false,
     }
